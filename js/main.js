@@ -51,9 +51,55 @@ function initNav() {
   });
 }
 
+/**
+ * Adds a solid background to the header once the page is scrolled.
+ */
+function initHeaderScroll() {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
+
+  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+/**
+ * Highlights the nav link of the section that crosses the middle of the viewport.
+ */
+function initActiveSection() {
+  const links = document.querySelectorAll('.nav__link[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+
+  const linkById = new Map(
+    [...links].map((link) => [link.getAttribute('href').slice(1), link])
+  );
+
+  const setActive = (id) => {
+    links.forEach((link) => {
+      const active = link === linkById.get(id);
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' }
+  );
+
+  document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
+}
+
 function init() {
   initCurrentYear();
   initNav();
+  initHeaderScroll();
+  initActiveSection();
 }
 
 init();
