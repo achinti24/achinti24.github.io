@@ -113,12 +113,76 @@ function initSpotlight() {
   });
 }
 
+/**
+ * Shows a short message in the live region (read by screen readers too).
+ */
+let toastTimer;
+function showToast(message) {
+  const toast = document.querySelector('[data-toast]');
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2400);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // Permission denied: fall through to the legacy method
+    }
+  }
+
+  // Fallback for non-secure contexts or denied clipboard permission
+  const field = document.createElement('textarea');
+  field.value = text;
+  field.setAttribute('readonly', '');
+  field.style.position = 'fixed';
+  field.style.opacity = '0';
+  document.body.append(field);
+  field.select();
+  const ok = document.execCommand('copy');
+  field.remove();
+  if (!ok) throw new Error('Copy command failed');
+}
+
+/**
+ * Copy-to-clipboard buttons: <button data-copy="text">.
+ */
+function initCopyButtons() {
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    const label = button.querySelector('[data-copy-label]');
+    const original = label ? label.textContent : '';
+
+    button.addEventListener('click', async () => {
+      try {
+        await copyText(button.dataset.copy);
+        button.classList.add('is-copied');
+        if (label) label.textContent = 'Copiado';
+        showToast('Email copiado al portapapeles');
+
+        setTimeout(() => {
+          button.classList.remove('is-copied');
+          if (label) label.textContent = original;
+        }, 2400);
+      } catch {
+        showToast('No se pudo copiar. Escribe a ' + button.dataset.copy);
+      }
+    });
+  });
+}
+
 function init() {
   initCurrentYear();
   initNav();
   initHeaderScroll();
   initActiveSection();
   initSpotlight();
+  initCopyButtons();
 }
 
 init();
