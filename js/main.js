@@ -95,11 +95,30 @@ function initActiveSection() {
   document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
 }
 
+/**
+ * Spotlight cards: exposes the pointer position as --x / --y for the CSS glow.
+ * Only on devices with a fine pointer and no reduced-motion preference.
+ */
+function initSpotlight() {
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!canHover || reduceMotion) return;
+
+  document.querySelectorAll('[data-spotlight]').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--x', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--y', `${event.clientY - rect.top}px`);
+    });
+  });
+}
+
 function init() {
   initCurrentYear();
   initNav();
   initHeaderScroll();
   initActiveSection();
+  initSpotlight();
 }
 
 init();
