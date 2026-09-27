@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Achinti Morales · Junior Full Stack Developer</title>
+  <meta name="description" content="Desarrollador junior full stack con software propio en producción: sistema POS e inventario y chatbot de pedidos por WhatsApp. Disponible para trabajo 100% remoto.">
+  <meta name="author" content="Achinti Morales Hernández">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B0F14">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://achinti24.github.io/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Achinti Morales">
+  <meta property="og:title" content="Achinti Morales · Junior Full Stack Developer">
+  <meta property="og:description" content="Transformo problemas reales de negocio en software funcional. Software propio en producción para clientes reales.">
+  <meta property="og:url" content="https://achinti24.github.io/">
+  <meta property="og:image" content="https://achinti24.github.io/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portafolio de Achinti Morales Hernández, Junior Full Stack Developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://achinti24.github.io/assets/images/og-image.jpg">
+  <meta name="twitter:title" content="Achinti Morales · Junior Full Stack Developer">
+  <meta name="twitter:description" content="Transformo problemas reales de negocio en software funcional.">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#inicio" aria-label="Achinti Morales, ir al inicio">
+        <span class="brand__mark" aria-hidden="true">AM</span>
+        <span class="brand__name">Achinti Morales</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú" data-nav-toggle>
+          <span class="nav__toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="nav__menu" id="nav-menu" data-nav-menu>
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+            <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+            <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+            <li><a class="nav__link" href="#formacion">Formación</a></li>
+            <li><a class="nav__link" href="#contacto">Contacto</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm nav__cta" href="assets/cv/cv-achinti-morales-fullstack.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+            Descargar CV
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="status">
+            <span class="status__dot" aria-hidden="true"></span>
+            Disponible para trabajo 100% remoto
+          </p>
+
+          <h1 id="hero-title" class="hero__title">
+            <span class="hero__name">Achinti Morales Hernández</span>
+            <span class="hero__role">Junior Full Stack Developer</span>
+          </h1>
+
+          <p class="hero__lead">
+            Transformo problemas reales de negocio en <em>software funcional</em>.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#proyectos">
+              Ver proyectos
+              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#contacto">Contactar</a>
+          </div>
+
+          <p class="hero__location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            San Gil, Santander, Colombia
+          </p>
+        </div>
+
+        <figure class="hero__media">
+          <img class="hero__photo" src="assets/images/achinti-morales-perfil.webp" width="800" height="1000" alt="Retrato de Achinti Morales Hernández sonriendo, con camisa a rayas y corbata, frente a un fondo de árboles" fetchpriority="high">
+          <figcaption class="hero__badge">
+            <span class="status__dot" aria-hidden="true"></span>
+            <span>
+              <strong>2 sistemas en producción</strong>
+              <span class="hero__badge-sub">POS e inventario · Chatbot WhatsApp</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section" aria-labelledby="sobre-mi-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">01 · Sobre mí</p>
+          <h2 id="sobre-mi-title">Del requerimiento al despliegue</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__text">
+            <p>
+              Soy desarrollador junior full stack con <strong>software propio en producción</strong>, utilizado a diario por clientes reales: un sistema de punto de venta e inventario y un chatbot de gestión de pedidos por WhatsApp.
+            </p>
+            <p>
+              Cubro el ciclo completo de un producto: levanto los requerimientos con el cliente, diseño el modelo de datos, construyo la API REST y la interfaz, y me encargo del despliegue y el mantenimiento.
+            </p>
+          </div>
+
+          <dl class="about__facts card">
+            <div class="fact">
+              <dt>Ubicación</dt>
+              <dd>San Gil, Santander, Colombia</dd>
+            </div>
+            <div class="fact">
+              <dt>Modalidad</dt>
+              <dd>100% remoto</dd>
+            </div>
+            <div class="fact">
+              <dt>Experiencia</dt>
+              <dd>Full Stack Freelance · 2025 – actual</dd>
+            </div>
+            <div class="fact">
+              <dt>Idiomas</dt>
+              <dd>Español (nativo) · Inglés (A2)</dd>
+            </div>
+          </dl>
+        </div>
+
+        <ol class="cycle">
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">01</span>Requerimientos</li>
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">02</span>Modelo de datos</li>
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">03</span>API REST</li>
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">04</span>Interfaz</li>
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">05</span>Despliegue</li>
+          <li class="cycle__step"><span class="cycle__num" aria-hidden="true">06</span>Mantenimiento</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section" aria-labelledby="habilidades-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">02 · Habilidades</p>
+          <h2 id="habilidades-title">Stack con el que construyo</h2>
+          <p>Tecnologías que uso en proyectos reales, agrupadas por área.</p>
+        </header>
+
+        <ul class="skills">
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4M14 4l-4 16"/></svg>
+              Lenguajes
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">Python</li>
+              <li class="chip">SQL</li>
+            </ul>
+          </li>
+
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></svg>
+              Frontend
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">React</li>
+              <li class="chip">React Router</li>
+              <li class="chip">Vite</li>
+              <li class="chip">HTML5</li>
+              <li class="chip">CSS3</li>
+            </ul>
+          </li>
+
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+              Backend
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">Node.js</li>
+              <li class="chip">Express</li>
+              <li class="chip">APIs REST</li>
+              <li class="chip">Electron</li>
+            </ul>
+          </li>
+
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="2.5"/><path d="M4 5.5v13c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-13M4 12c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5"/></svg>
+              Bases de datos
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">MySQL</li>
+              <li class="chip">SQLite</li>
+            </ul>
+          </li>
+
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.5-8.97 6 6 0 0 1 11.5 1.47A4 4 0 0 1 17 18Z"/></svg>
+              DevOps
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">Docker</li>
+              <li class="chip">DigitalOcean</li>
+              <li class="chip">Caddy</li>
+              <li class="chip">VPS</li>
+            </ul>
+          </li>
+
+          <li class="skill card" data-spotlight>
+            <h3 class="skill__title">
+              <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10m12-8c0 4-6 3.5-10.5 8.5"/></svg>
+              Herramientas
+            </h3>
+            <ul class="chip-list">
+              <li class="chip">Git</li>
+              <li class="chip">GitHub</li>
+              <li class="chip">n8n</li>
+              <li class="chip">Groq API</li>
+              <li class="chip">Chart.js</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section" aria-labelledby="proyectos-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">03 · Proyectos</p>
+          <h2 id="proyectos-title">Software real, en producción</h2>
+          <p>Dos sistemas que clientes reales usan a diario y proyectos donde exploro 3D, IA y visión artificial.</p>
+        </header>
+
+        <div class="projects">
+          <!-- Featured: real clients in production -->
+          <article class="project project--featured card" data-spotlight aria-labelledby="project-casacas">
+            <div class="project__media">
+              <img src="assets/images/casacas-pos-metas.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Pantalla de metas de ventas del sistema Casacas Colegial en modo oscuro: metas diaria, semanal y mensual, indicadores del día y gráfica de ventas contra egresos por mes">
+            </div>
+
+            <div class="project__body">
+              <p class="tag tag--live"><span class="status__dot" aria-hidden="true"></span>Cliente real · En producción</p>
+              <h3 id="project-casacas" class="project__title">
+                Casacas Colegial
+                <span class="project__subtitle">Sistema POS e Inventario</span>
+              </h3>
+
+              <dl class="project__case">
+                <div>
+                  <dt>Problema</dt>
+                  <dd>Un negocio de uniformes necesitaba controlar ventas, inventario y caja.</dd>
+                </div>
+                <div>
+                  <dt>Solución</dt>
+                  <dd>
+                    App de escritorio con:
+                    <ul class="checklist">
+                      <li>Modelo relacional de más de 15 tablas</li>
+                      <li>Transacciones atómicas con rollback</li>
+                      <li>Anulación de ventas con restauración de inventario</li>
+                      <li>Control de caja por turno y apartados</li>
+                      <li>Impresión térmica ESC/POS</li>
+                      <li>Reportes exportables a Excel</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <p class="project__impact">Se usa a diario en la operación del cliente.</p>
+
+              <ul class="chip-list">
+                <li class="chip">Electron</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">better-sqlite3</li>
+                <li class="chip">ESC/POS</li>
+                <li class="chip">XLSX</li>
+                <li class="chip">Chart.js</li>
+                <li class="chip">JSBarcode</li>
+              </ul>
+
+              <div class="project__links">
+                <a class="link-arrow" href="https://github.com/achinti24/Casacas" target="_blank" rel="noopener noreferrer">
+                  Ver código<span class="visually-hidden"> de Casacas Colegial en GitHub (se abre en una pestaña nueva)</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--featured project--reverse card" data-spotlight aria-labelledby="project-chatbot">
+            <div class="project__media project__media--placeholder" aria-hidden="true">
+              <div class="chat-mock">
+                <span class="chat-mock__bubble chat-mock__bubble--in"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--out"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--in chat-mock__bubble--long"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--out chat-mock__bubble--short"></span>
+                <span class="chat-mock__typing"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+
+            <div class="project__body">
+              <p class="tag tag--live"><span class="status__dot" aria-hidden="true"></span>Cliente real · En producción</p>
+              <h3 id="project-chatbot" class="project__title">
+                Chatbot Inteligente para WhatsApp
+                <span class="project__subtitle">Atención al cliente y pedidos automatizados</span>
+              </h3>
+
+              <dl class="project__case">
+                <div>
+                  <dt>Problema</dt>
+                  <dd>La atención al cliente y la toma de pedidos por WhatsApp se hacían de forma manual.</dd>
+                </div>
+                <div>
+                  <dt>Solución</dt>
+                  <dd>
+                    <ul class="checklist">
+                      <li>Flujo conversacional con manejo de estado y menús multinivel</li>
+                      <li>IA con Groq que responde en lenguaje natural y deriva a un asesor humano</li>
+                      <li>Registro automático de pedidos en Google Sheets</li>
+                      <li>Orquestado en n8n con manejo de errores y reintentos</li>
+                      <li>Desplegado en VPS con Docker y Caddy como proxy inverso</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <ul class="chip-list">
+                <li class="chip">n8n</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">Baileys</li>
+                <li class="chip">Groq API (Llama)</li>
+                <li class="chip">Google Sheets</li>
+                <li class="chip">Docker</li>
+                <li class="chip">DigitalOcean</li>
+                <li class="chip">Caddy</li>
+              </ul>
+
+              <div class="project__links">
+                <a class="link-arrow" href="https://github.com/achinti24/n8n-lh-bot" target="_blank" rel="noopener noreferrer">
+                  Ver workflow<span class="visually-hidden"> del chatbot de WhatsApp en GitHub (se abre en una pestaña nueva)</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Standard projects -->
+          <div class="projects__grid">
+            <article class="project card" data-spotlight aria-labelledby="project-menu3d">
+              <div class="project__media project__media--placeholder project__media--compact" aria-hidden="true">
+                <svg class="project__art" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M32 8 54 20v24L32 56 10 44V20Z"/><path d="M10 20l22 12 22-12M32 32v24"/><path d="M21 14l22 12M43 14 21 26" stroke-dasharray="2 3" opacity=".5"/></svg>
+              </div>
+
+              <div class="project__body">
+                <p class="tag tag--dev">En desarrollo</p>
+                <h3 id="project-menu3d" class="project__title">
+                  Menú 3D
+                  <span class="project__subtitle">Menú digital con comida en 3D y realidad aumentada</span>
+                </h3>
+
+                <dl class="project__case">
+                  <div>
+                    <dt>Problema</dt>
+                    <dd>En un menú tradicional el cliente no puede ver cómo es el plato antes de pedirlo.</dd>
+                  </div>
+                  <div>
+                    <dt>Solución</dt>
+                    <dd>Plataforma web multi-restaurante que se abre con un QR, sin instalar nada. Cada plato tiene fotos, ingredientes, un modelo 3D interactivo y la opción «Ver en mi mesa» con realidad aumentada. Incluye panel de administración con autenticación JWT y roles.</dd>
+                  </div>
+                </dl>
+
+                <ul class="chip-list">
+                  <li class="chip">React 19</li>
+                  <li class="chip">TypeScript</li>
+                  <li class="chip">Vite</li>
+                  <li class="chip">Three.js</li>
+                  <li class="chip">WebXR</li>
+                  <li class="chip">Express</li>
+                  <li class="chip">Prisma</li>
+                  <li class="chip">PostgreSQL</li>
+                  <li class="chip">JWT</li>
+                  <li class="chip">Docker</li>
+                </ul>
+
+                <div class="project__links">
+                  <a class="link-arrow" href="https://github.com/achinti24/men--3D" target="_blank" rel="noopener noreferrer">
+                    Ver código<span class="visually-hidden"> de Menú 3D en GitHub (se abre en una pestaña nueva)</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project card" data-spotlight aria-labelledby="project-ludik">
+              <div class="project__media project__media--placeholder project__media--compact" aria-hidden="true">
+                <svg class="project__art" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="10" width="34" height="44" rx="4"/><path d="M19 22h20M19 30h20M19 38h12"/><path d="M50 8l1.8 4.2L56 14l-4.2 1.8L50 20l-1.8-4.2L44 14l4.2-1.8Z" fill="currentColor" fill-opacity=".15"/></svg>
+              </div>
+
+              <div class="project__body">
+                <p class="tag">Proyecto académico</p>
+                <h3 id="project-ludik" class="project__title">
+                  IA-Ludik
+                  <span class="project__subtitle">Generador de talleres de educación inclusiva con IA</span>
+                </h3>
+
+                <dl class="project__case">
+                  <div>
+                    <dt>Problema</dt>
+                    <dd>Preparar actividades adaptadas a estudiantes con discapacidad le toma mucho tiempo a los docentes.</dd>
+                  </div>
+                  <div>
+                    <dt>Solución</dt>
+                    <dd>El docente elige el perfil del estudiante, la materia, el tema, el nivel y la cantidad de actividades; la IA genera un taller adaptado que se muestra con formato. Las respuestas se guardan en caché para no repetir consultas.</dd>
+                  </div>
+                </dl>
+
+                <ul class="chip-list">
+                  <li class="chip">Node.js</li>
+                  <li class="chip">Express</li>
+                  <li class="chip">Groq API</li>
+                  <li class="chip">Marked</li>
+                  <li class="chip">JavaScript</li>
+                </ul>
+
+                <div class="project__links">
+                  <a class="link-arrow" href="https://github.com/achinti24/IA-Ludik" target="_blank" rel="noopener noreferrer">
+                    Ver código<span class="visually-hidden"> de IA-Ludik en GitHub (se abre en una pestaña nueva)</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project card" data-spotlight aria-labelledby="project-eye">
+              <div class="project__media project__media--placeholder project__media--compact" aria-hidden="true">
+                <svg class="project__art" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20v-8a4 4 0 0 1 4-4h8M44 8h8a4 4 0 0 1 4 4v8M56 44v8a4 4 0 0 1-4 4h-8M20 56h-8a4 4 0 0 1-4-4v-8"/><circle cx="32" cy="28" r="9"/><path d="M18 50c2-7 7.5-11 14-11s12 4 14 11"/><path d="M14 32h36" stroke-dasharray="2 3" opacity=".6"/></svg>
+              </div>
+
+              <div class="project__body">
+                <p class="tag">Proyecto personal</p>
+                <h3 id="project-eye" class="project__title">
+                  Eye System
+                  <span class="project__subtitle">Control de acceso por reconocimiento facial</span>
+                </h3>
+
+                <dl class="project__case">
+                  <div>
+                    <dt>Problema</dt>
+                    <dd>Evitar que personas no autorizadas ingresen a colegios o instalaciones.</dd>
+                  </div>
+                  <div>
+                    <dt>Solución</dt>
+                    <dd>Detección y reconocimiento facial en tiempo real con OpenCV, MediaPipe FaceMesh y LBPH; registro automático de ingresos en MySQL y panel de análisis de los datos con pandas y Matplotlib.</dd>
+                  </div>
+                </dl>
+
+                <ul class="chip-list">
+                  <li class="chip">Python</li>
+                  <li class="chip">OpenCV</li>
+                  <li class="chip">MediaPipe</li>
+                  <li class="chip">LBPH</li>
+                  <li class="chip">MySQL</li>
+                  <li class="chip">pandas</li>
+                  <li class="chip">Matplotlib</li>
+                </ul>
+
+                <div class="project__links">
+                  <a class="link-arrow" href="https://github.com/achinti24/concurso-eye_system" target="_blank" rel="noopener noreferrer">
+                    Ver código<span class="visually-hidden"> de Eye System en GitHub (se abre en una pestaña nueva)</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion" class="section" aria-labelledby="formacion-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">04 · Formación</p>
+          <h2 id="formacion-title">Formación y experiencia</h2>
+        </header>
+
+        <div class="journey">
+          <div class="journey__col">
+            <h3 class="journey__heading">Experiencia</h3>
+            <ol class="timeline">
+              <li class="timeline__item timeline__item--current">
+                <p class="timeline__date"><time datetime="2025">2025</time> – actual</p>
+                <h4 class="timeline__title">Desarrollador Full Stack Freelance</h4>
+                <p class="timeline__org">Clientes independientes</p>
+                <p class="timeline__desc">Soluciones a medida para pequeños negocios, desde el levantamiento de requerimientos hasta el despliegue y el soporte.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="journey__col">
+            <h3 class="journey__heading">Formación</h3>
+            <ol class="timeline">
+              <li class="timeline__item timeline__item--current">
+                <p class="timeline__date"><time datetime="2026">2026</time> – en curso</p>
+                <h4 class="timeline__title">Técnico en Desarrollo Web e IA</h4>
+                <p class="timeline__org">Campuslands</p>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__date"><time datetime="2020">2020</time> – <time datetime="2025">2025</time></p>
+                <h4 class="timeline__title">Bachiller Técnico en Sistemas</h4>
+                <p class="timeline__org">Colegio San José de Guanentá</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section" aria-labelledby="contacto-title">
+      <div class="container">
+        <div class="contact card">
+          <div class="contact__main">
+            <header class="section-header">
+              <p class="eyebrow">05 · Contacto</p>
+              <h2 id="contacto-title">¿Construimos algo juntos?</h2>
+              <p>Estoy disponible para trabajo 100% remoto y proyectos a medida. Escríbeme por el canal que prefieras.</p>
+            </header>
+
+            <div class="contact__actions">
+              <a class="btn btn--primary" href="https://wa.me/573138090276" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.95A8.5 8.5 0 1 1 8 19.5Z"/></svg>
+                Escribir por WhatsApp<span class="visually-hidden"> (se abre en una pestaña nueva)</span>
+              </a>
+              <a class="btn btn--ghost" href="mailto:achintimorales@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                Enviar email
+              </a>
+            </div>
+
+            <ul class="contact__links">
+              <li class="contact-row">
+                <span class="contact-row__label">Email</span>
+                <a class="contact-row__value" href="mailto:achintimorales@gmail.com">achintimorales@gmail.com</a>
+                <button class="copy-btn" type="button" data-copy="achintimorales@gmail.com">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <span data-copy-label>Copiar</span>
+                </button>
+              </li>
+              <li class="contact-row">
+                <span class="contact-row__label">GitHub</span>
+                <a class="contact-row__value" href="https://github.com/achinti24" target="_blank" rel="noopener noreferrer">github.com/achinti24<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+              </li>
+              <li class="contact-row">
+                <span class="contact-row__label">LinkedIn</span>
+                <a class="contact-row__value" href="https://www.linkedin.com/in/achinti-morales-hern%C3%A1ndez-879172338/" target="_blank" rel="noopener noreferrer">in/achinti-morales-hernández<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="contact__cv" aria-labelledby="cv-title">
+            <h3 id="cv-title" class="contact__cv-title">Hojas de vida</h3>
+            <p class="contact__cv-text">Descarga la versión que mejor encaje con tu vacante.</p>
+            <ul class="downloads">
+              <li>
+                <a class="download" href="assets/cv/cv-achinti-morales-fullstack.pdf" download>
+                  <span class="download__name">Full Stack <span class="download__badge">ES · EN</span></span>
+                  <span class="download__meta">PDF · 1,8 MB</span>
+                  <svg class="download__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="download" href="assets/cv/cv-achinti-morales-automatizacion-ia.pdf" download>
+                  <span class="download__name">Automatización e IA</span>
+                  <span class="download__meta">PDF · 0,9 MB</span>
+                  <svg class="download__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="download" href="assets/cv/cv-achinti-morales-frontend.pdf" download>
+                  <span class="download__name">Frontend</span>
+                  <span class="download__meta">PDF · 0,9 MB</span>
+                  <svg class="download__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="download" href="assets/cv/cv-achinti-morales-backend.pdf" download>
+                  <span class="download__name">Backend</span>
+                  <span class="download__meta">PDF · 0,9 MB</span>
+                  <svg class="download__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+                </a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© <span data-current-year>2026</span> Achinti Morales Hernández</p>
+      <p class="site-footer__made">Hecho a mano con HTML, CSS y JavaScript vanilla</p>
+      <a class="site-footer__top" href="#inicio">
+        Volver arriba
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>
