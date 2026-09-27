@@ -176,6 +176,53 @@ function initCopyButtons() {
   });
 }
 
+/**
+ * Fades blocks in as they enter the viewport. Classes are only added here,
+ * so content stays visible without JS or with reduced motion.
+ */
+function initReveal() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll(
+    '.section-header, .about__text, .about__facts, .cycle, .skill, .project, .journey__col, .contact'
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+
+        // Hand transitions back to the component (hover effects) once revealed
+        const cleanup = (event) => {
+          if (event.target !== el) return;
+          el.removeEventListener('transitionend', cleanup);
+          el.classList.remove('reveal', 'is-visible');
+          el.style.removeProperty('--reveal-delay');
+        };
+        el.addEventListener('transitionend', cleanup);
+      });
+    },
+    { rootMargin: '0px 0px -10% 0px' }
+  );
+
+  // Stagger siblings of the same kind (e.g. cards in a grid), max 4 steps
+  const delays = new Map();
+  targets.forEach((el) => {
+    const siblings = [...el.parentElement.children].filter((child) => child.className === el.className);
+    delays.set(el, Math.min(siblings.indexOf(el), 4) * 80);
+  });
+
+  targets.forEach((el) => {
+    if (delays.get(el) > 0) el.style.setProperty('--reveal-delay', `${delays.get(el)}ms`);
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}
+
 function init() {
   initCurrentYear();
   initNav();
@@ -183,6 +230,7 @@ function init() {
   initActiveSection();
   initSpotlight();
   initCopyButtons();
+  initReveal();
 }
 
 init();

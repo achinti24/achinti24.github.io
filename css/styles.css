@@ -152,8 +152,8 @@ a {
   color: inherit;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul[class],
+ol[class] {
   list-style: none;
   padding: 0;
 }
@@ -481,9 +481,8 @@ h3 {
   gap: var(--space-5);
   padding: var(--space-5) var(--gutter) var(--space-6);
   border-bottom: 1px solid var(--border);
-  background: rgb(11 15 20 / 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg);
+  box-shadow: 0 24px 48px -12px rgb(0 0 0 / 0.7);
   visibility: hidden;
   opacity: 0;
   transform: translateY(-0.5rem);
@@ -1660,6 +1659,54 @@ h3 {
 .toast.is-visible {
   opacity: 1;
   translate: -50% 0;
+}
+
+/* --------------------------------------------------------------------------
+   15. Responsive refinements
+   -------------------------------------------------------------------------- */
+
+/* Phones: action buttons share the row evenly */
+@media (max-width: 39.99rem) {
+  .hero__actions,
+  .contact__actions {
+    width: 100%;
+  }
+
+  .hero__actions .btn,
+  .contact__actions .btn {
+    flex: 1 1 10rem;
+  }
+}
+
+/* Very small phones (320px) */
+@media (max-width: 22.5rem) {
+  .brand__name {
+    display: none;
+  }
+
+  .status {
+    font-size: var(--fs-xs);
+  }
+}
+
+/* The hero already fills the viewport: tighten the gap to the next section */
+.hero + .section {
+  padding-top: calc(var(--space-section) * 0.5);
+}
+
+/* Scroll reveal: classes are added by JS only when motion is allowed */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* --------------------------------------------------------------------------
