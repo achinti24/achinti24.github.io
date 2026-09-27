@@ -1690,6 +1690,21 @@ h3 {
   }
 }
 
+/* Scroll reveal: classes are added by JS only when motion is allowed */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* --------------------------------------------------------------------------
    Utilities
    -------------------------------------------------------------------------- */
