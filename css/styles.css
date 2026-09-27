@@ -1689,6 +1689,11 @@ h3 {
   }
 }
 
+/* The hero already fills the viewport: tighten the gap to the next section */
+.hero + .section {
+  padding-top: calc(var(--space-section) * 0.5);
+}
+
 /* Scroll reveal: classes are added by JS only when motion is allowed */
 .reveal {
   opacity: 0;
