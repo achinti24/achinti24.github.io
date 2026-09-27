@@ -759,6 +759,27 @@ h3 {
   }
 }
 
+/* Staggered entrance, only when the user has no motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__content > *,
+  .hero__media {
+    animation: rise var(--duration-slow) var(--ease-out) both;
+  }
+
+  .hero__content > :nth-child(2) { animation-delay: 60ms; }
+  .hero__content > :nth-child(3) { animation-delay: 120ms; }
+  .hero__content > :nth-child(4) { animation-delay: 180ms; }
+  .hero__content > :nth-child(5) { animation-delay: 240ms; }
+  .hero__media { animation-delay: 200ms; }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
 @media (min-width: 64rem) {
   .hero {
     display: flex;
