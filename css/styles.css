@@ -4,7 +4,105 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Reset
+   1. Fonts (self-hosted, variable, latin subset)
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../assets/fonts/space-grotesk-var.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/jetbrains-mono-var.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   2. Design tokens
+   Contrast (WCAG) on --bg: text 16.3 · muted 7.9 · subtle 6.0 · accent 13.0
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Color */
+  --bg: #0B0F14;
+  --surface: #11161E;
+  --surface-2: #171E28;
+  --border: #232D3B;
+  --border-strong: #334155;
+
+  --text: #E6EDF3;
+  --text-muted: #9AA8B8;
+  --text-subtle: #8391A3;
+
+  --accent: #5EEAD4;
+  --accent-hover: #99F6E4;
+  --accent-ink: #04211D;
+  --accent-soft: rgb(94 234 212 / 0.1);
+  --accent-glow: rgb(94 234 212 / 0.16);
+
+  --success: #4ADE80;
+  --success-soft: rgb(74 222 128 / 0.1);
+  --warning: #FBBF24;
+  --warning-soft: rgb(251 191 36 / 0.1);
+
+  /* Typography */
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --fs-2xl: clamp(2.5rem, 1.8rem + 3.4vw, 4.25rem);
+
+  /* Spacing (4px scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(4.5rem, 3rem + 6vw, 8rem);
+
+  /* Layout */
+  --container: 70rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+  --header-h: 4rem;
+
+  /* Shape & depth */
+  --radius-sm: 0.5rem;
+  --radius: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.6);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 200ms;
+  --duration-slow: 600ms;
+}
+
+/* --------------------------------------------------------------------------
+   3. Reset
    -------------------------------------------------------------------------- */
 
 *,
