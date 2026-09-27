@@ -363,7 +363,221 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   7. Utilities
+   7. Header & navigation
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--header-h);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out);
+}
+
+.site-header.is-scrolled,
+.site-header.is-open {
+  border-bottom-color: var(--border);
+  background: rgb(11 15 20 / 0.82);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.brand:hover .brand__mark {
+  border-color: var(--accent);
+}
+
+/* Hamburger (mobile & tablet) */
+.nav__toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: calc(var(--space-2) * -1);
+  border-radius: var(--radius-sm);
+}
+
+.nav__toggle-icon,
+.nav__toggle-icon::before,
+.nav__toggle-icon::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition:
+    transform var(--duration) var(--ease-out),
+    background-color var(--duration) var(--ease-out);
+}
+
+.nav__toggle-icon {
+  position: relative;
+}
+
+.nav__toggle-icon::before,
+.nav__toggle-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav__toggle-icon::before {
+  transform: translateY(-6px);
+}
+
+.nav__toggle-icon::after {
+  transform: translateY(6px);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-icon {
+  background: transparent;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-icon::before {
+  transform: rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-icon::after {
+  transform: rotate(-45deg);
+}
+
+/* Mobile panel: hidden (and out of the tab order) until opened */
+.nav__menu {
+  position: fixed;
+  inset: var(--header-h) 0 auto;
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--gutter) var(--space-6);
+  border-bottom: 1px solid var(--border);
+  background: rgb(11 15 20 / 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out),
+    visibility 0s linear var(--duration);
+}
+
+.site-header.is-open .nav__menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.nav__list {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: var(--space-3) 0;
+  color: var(--text-muted);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--duration) var(--ease-out);
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--text);
+}
+
+.nav__link.is-active {
+  color: var(--accent);
+}
+
+@media (min-width: 64rem) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .nav__list {
+    display: flex;
+    gap: var(--space-5);
+  }
+
+  .nav__link {
+    padding: var(--space-2) 0;
+    font-size: var(--fs-sm);
+  }
+
+  /* Animated underline for hover and active section */
+  .nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration) var(--ease-out);
+  }
+
+  .nav__link:hover::after,
+  .nav__link.is-active::after {
+    transform: scaleX(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
    -------------------------------------------------------------------------- */
 
 .visually-hidden {
@@ -397,7 +611,7 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   8. Reduced motion
+   Reduced motion
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
