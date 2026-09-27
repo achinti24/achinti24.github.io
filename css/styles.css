@@ -152,8 +152,8 @@ a {
   color: inherit;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul[class],
+ol[class] {
   list-style: none;
   padding: 0;
 }
