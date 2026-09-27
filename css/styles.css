@@ -582,6 +582,7 @@ h3 {
 
 .hero {
   position: relative;
+  overflow-x: clip;
   padding-top: calc(var(--header-h) + var(--space-7));
   padding-bottom: var(--space-section);
 }
@@ -801,6 +802,123 @@ h3 {
   .hero__badge {
     left: calc(var(--space-6) * -1);
     translate: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. About
+   -------------------------------------------------------------------------- */
+
+.about {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.about__text {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 62ch;
+  color: var(--text-muted);
+  font-size: var(--fs-md);
+}
+
+.about__text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about__facts {
+  display: grid;
+  padding: var(--space-2) var(--space-5);
+}
+
+.fact {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+}
+
+.fact + .fact {
+  border-top: 1px solid var(--border);
+}
+
+.fact dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.fact dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.cycle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+.cycle__step {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--surface), transparent);
+  font-weight: 500;
+  transition:
+    border-color var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.cycle__step:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.cycle__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+}
+
+@media (min-width: 40rem) {
+  .cycle {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .about {
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .cycle {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+
+  /* Steps read as one connected pipeline on desktop */
+  .cycle__step {
+    border-radius: 0;
+  }
+
+  .cycle__step + .cycle__step {
+    border-left: 0;
+  }
+
+  .cycle__step:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
+
+  .cycle__step:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   }
 }
 
