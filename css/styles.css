@@ -582,6 +582,7 @@ h3 {
 
 .hero {
   position: relative;
+  overflow-x: clip;
   padding-top: calc(var(--header-h) + var(--space-7));
   padding-bottom: var(--space-section);
 }
