@@ -999,6 +999,306 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   11. Projects
+   -------------------------------------------------------------------------- */
+
+.projects {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.projects__grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.project {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+.project__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.project:hover .project__media img {
+  transform: scale(1.03);
+}
+
+/* Illustrated placeholder until a real screenshot is available */
+.project__media--placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background:
+    radial-gradient(circle at 50% 120%, var(--accent-glow), transparent 60%),
+    linear-gradient(to right, rgb(255 255 255 / 0.03) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(to bottom, rgb(255 255 255 / 0.03) 1px, transparent 1px) 0 0 / 24px 24px,
+    var(--surface-2);
+}
+
+.project__media--compact {
+  aspect-ratio: 16 / 7;
+}
+
+.project__art {
+  width: 4.5rem;
+  height: 4.5rem;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.project:hover .project__art {
+  transform: translateY(-4px) rotate(-3deg);
+}
+
+/* Abstract chat conversation (no real data) */
+.chat-mock {
+  display: grid;
+  gap: var(--space-2);
+  width: min(78%, 20rem);
+}
+
+.chat-mock__bubble {
+  height: 1.75rem;
+  width: 62%;
+  border-radius: 0.875rem 0.875rem 0.875rem 0.25rem;
+  background: var(--border-strong);
+}
+
+.chat-mock__bubble--out {
+  justify-self: end;
+  width: 48%;
+  border-radius: 0.875rem 0.875rem 0.25rem 0.875rem;
+  background: rgb(94 234 212 / 0.35);
+}
+
+.chat-mock__bubble--long {
+  width: 80%;
+}
+
+.chat-mock__bubble--short {
+  width: 34%;
+}
+
+.chat-mock__typing {
+  display: inline-flex;
+  gap: 4px;
+  width: max-content;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--border);
+}
+
+.chat-mock__typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-subtle);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chat-mock__typing i {
+    animation: typing 1.2s ease-in-out infinite;
+  }
+
+  .chat-mock__typing i:nth-child(2) { animation-delay: 150ms; }
+  .chat-mock__typing i:nth-child(3) { animation-delay: 300ms; }
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: none;
+    opacity: 0.5;
+  }
+
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+.project__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.project__title {
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--fs-lg);
+}
+
+.project__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.project__case {
+  display: grid;
+  gap: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.project__case dt {
+  margin-bottom: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.project__case dd {
+  margin: 0;
+}
+
+.checklist {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.checklist li {
+  position: relative;
+  padding-left: var(--space-5);
+  color: var(--text);
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--accent);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.project__impact {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--success);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* Tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.tag--live {
+  border-color: rgb(74 222 128 / 0.3);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.tag--dev {
+  border-color: rgb(251 191 36 / 0.3);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+/* Text link with arrow */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.link-arrow svg {
+  width: 1em;
+  height: 1em;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.link-arrow:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.link-arrow:hover svg {
+  transform: translate(2px, -2px);
+}
+
+@media (min-width: 40rem) {
+  .project__body {
+    padding: var(--space-6);
+  }
+}
+
+@media (min-width: 64rem) {
+  .project--featured {
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  .project--featured .project__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .project--reverse .project__media {
+    order: 2;
+    border-right: 0;
+    border-left: 1px solid var(--border);
+  }
+
+  .project--featured .project__body {
+    padding: var(--space-7) var(--space-6);
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Utilities
    -------------------------------------------------------------------------- */
 

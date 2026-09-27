@@ -247,7 +247,127 @@
     </section>
 
     <section id="proyectos" class="section" aria-labelledby="proyectos-title">
-      <h2 id="proyectos-title">Proyectos</h2>
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">03 · Proyectos</p>
+          <h2 id="proyectos-title">Software real, en producción</h2>
+          <p>Dos sistemas que clientes reales usan a diario y proyectos donde exploro 3D, IA y visión artificial.</p>
+        </header>
+
+        <div class="projects">
+          <!-- Featured: real clients in production -->
+          <article class="project project--featured card" data-spotlight aria-labelledby="project-casacas">
+            <div class="project__media">
+              <img src="assets/images/casacas-pos-metas.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Pantalla de metas de ventas del sistema Casacas Colegial en modo oscuro: metas diaria, semanal y mensual, indicadores del día y gráfica de ventas contra egresos por mes">
+            </div>
+
+            <div class="project__body">
+              <p class="tag tag--live"><span class="status__dot" aria-hidden="true"></span>Cliente real · En producción</p>
+              <h3 id="project-casacas" class="project__title">
+                Casacas Colegial
+                <span class="project__subtitle">Sistema POS e Inventario</span>
+              </h3>
+
+              <dl class="project__case">
+                <div>
+                  <dt>Problema</dt>
+                  <dd>Un negocio de uniformes necesitaba controlar ventas, inventario y caja.</dd>
+                </div>
+                <div>
+                  <dt>Solución</dt>
+                  <dd>
+                    App de escritorio con:
+                    <ul class="checklist" role="list">
+                      <li>Modelo relacional de más de 15 tablas</li>
+                      <li>Transacciones atómicas con rollback</li>
+                      <li>Anulación de ventas con restauración de inventario</li>
+                      <li>Control de caja por turno y apartados</li>
+                      <li>Impresión térmica ESC/POS</li>
+                      <li>Reportes exportables a Excel</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <p class="project__impact">Se usa a diario en la operación del cliente.</p>
+
+              <ul class="chip-list" role="list" aria-label="Tecnologías">
+                <li class="chip">Electron</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">better-sqlite3</li>
+                <li class="chip">ESC/POS</li>
+                <li class="chip">XLSX</li>
+                <li class="chip">Chart.js</li>
+                <li class="chip">JSBarcode</li>
+              </ul>
+
+              <div class="project__links">
+                <a class="link-arrow" href="https://github.com/achinti24/Casacas" target="_blank" rel="noopener noreferrer">
+                  Ver código<span class="visually-hidden"> de Casacas Colegial en GitHub (se abre en una pestaña nueva)</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--featured project--reverse card" data-spotlight aria-labelledby="project-chatbot">
+            <div class="project__media project__media--placeholder" aria-hidden="true">
+              <div class="chat-mock">
+                <span class="chat-mock__bubble chat-mock__bubble--in"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--out"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--in chat-mock__bubble--long"></span>
+                <span class="chat-mock__bubble chat-mock__bubble--out chat-mock__bubble--short"></span>
+                <span class="chat-mock__typing"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+
+            <div class="project__body">
+              <p class="tag tag--live"><span class="status__dot" aria-hidden="true"></span>Cliente real · En producción</p>
+              <h3 id="project-chatbot" class="project__title">
+                Chatbot Inteligente para WhatsApp
+                <span class="project__subtitle">Atención al cliente y pedidos automatizados</span>
+              </h3>
+
+              <dl class="project__case">
+                <div>
+                  <dt>Problema</dt>
+                  <dd>La atención al cliente y la toma de pedidos por WhatsApp se hacían de forma manual.</dd>
+                </div>
+                <div>
+                  <dt>Solución</dt>
+                  <dd>
+                    <ul class="checklist" role="list">
+                      <li>Flujo conversacional con manejo de estado y menús multinivel</li>
+                      <li>IA con Groq que responde en lenguaje natural y deriva a un asesor humano</li>
+                      <li>Registro automático de pedidos en Google Sheets</li>
+                      <li>Orquestado en n8n con manejo de errores y reintentos</li>
+                      <li>Desplegado en VPS con Docker y Caddy como proxy inverso</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <ul class="chip-list" role="list" aria-label="Tecnologías">
+                <li class="chip">n8n</li>
+                <li class="chip">Node.js</li>
+                <li class="chip">Baileys</li>
+                <li class="chip">Groq API (Llama)</li>
+                <li class="chip">Google Sheets</li>
+                <li class="chip">Docker</li>
+                <li class="chip">DigitalOcean</li>
+                <li class="chip">Caddy</li>
+              </ul>
+
+              <div class="project__links">
+                <a class="link-arrow" href="https://github.com/achinti24/n8n-lh-bot" target="_blank" rel="noopener noreferrer">
+                  Ver workflow<span class="visually-hidden"> del chatbot de WhatsApp en GitHub (se abre en una pestaña nueva)</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section id="formacion" class="section" aria-labelledby="formacion-title">
