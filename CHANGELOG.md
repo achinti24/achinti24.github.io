@@ -2,6 +2,12 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.0.1] - 2026-09-27
+
+### Cambiado
+
+- GitHub Pages sirve el sitio como archivos estáticos sin procesarlo con Jekyll (`.nojekyll`).
+
 ## [1.0.0] - 2026-09-27
 
 ### Añadido
