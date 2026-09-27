@@ -1663,6 +1663,34 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   15. Responsive refinements
+   -------------------------------------------------------------------------- */
+
+/* Phones: action buttons share the row evenly */
+@media (max-width: 39.99rem) {
+  .hero__actions,
+  .contact__actions {
+    width: 100%;
+  }
+
+  .hero__actions .btn,
+  .contact__actions .btn {
+    flex: 1 1 10rem;
+  }
+}
+
+/* Very small phones (320px) */
+@media (max-width: 22.5rem) {
+  .brand__name {
+    display: none;
+  }
+
+  .status {
+    font-size: var(--fs-xs);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Utilities
    -------------------------------------------------------------------------- */
 
