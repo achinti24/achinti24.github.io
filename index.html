@@ -31,7 +31,35 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#inicio" aria-label="Achinti Morales, ir al inicio">
+        <span class="brand__mark" aria-hidden="true">AM</span>
+        <span class="brand__name">Achinti Morales</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú" data-nav-toggle>
+          <span class="nav__toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="nav__menu" id="nav-menu" data-nav-menu>
+          <ul class="nav__list" role="list">
+            <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+            <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+            <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+            <li><a class="nav__link" href="#formacion">Formación</a></li>
+            <li><a class="nav__link" href="#contacto">Contacto</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm nav__cta" href="assets/cv/cv-achinti-morales-fullstack.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+            Descargar CV
+          </a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="contenido">
