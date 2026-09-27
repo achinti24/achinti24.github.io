@@ -1596,6 +1596,73 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   14. Footer & toast
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--border);
+  color: var(--text-subtle);
+  font-size: var(--fs-sm);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+}
+
+.site-footer__top {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease-out);
+}
+
+.site-footer__top svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.site-footer__top:hover {
+  color: var(--accent);
+}
+
+.site-footer__top:hover svg {
+  transform: translateY(-2px);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-5);
+  z-index: 60;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  opacity: 0;
+  translate: -50% 1rem;
+  pointer-events: none;
+  transition:
+    opacity var(--duration) var(--ease-out),
+    translate var(--duration) var(--ease-out);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+/* --------------------------------------------------------------------------
    Utilities
    -------------------------------------------------------------------------- */
 
