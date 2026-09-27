@@ -923,6 +923,82 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   10. Skills
+   -------------------------------------------------------------------------- */
+
+.skills {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.skill {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.skill__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-md);
+}
+
+.skill__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+@media (min-width: 40rem) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .skills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Spotlight: a soft glow that follows the pointer (set by JS via --x / --y) */
+[data-spotlight] {
+  isolation: isolate;
+  transition:
+    border-color var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    22rem circle at var(--x, 50%) var(--y, 0%),
+    var(--accent-glow),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+[data-spotlight]:hover {
+  border-color: var(--border-strong);
+}
+
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
    Utilities
    -------------------------------------------------------------------------- */
 
