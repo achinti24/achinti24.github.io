@@ -2,6 +2,25 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.1.0] - 2026-11-18
+
+### Añadido
+
+- Sección Servicios: puntos de venta, chatbots de WhatsApp con IA, aplicaciones web y despliegue, cada uno con el proyecto que lo prueba.
+- Proyecto Ronda, POS en la nube para restaurantes, con un fragmento de su pantalla de cocina.
+- Capturas reales del chatbot de LH Uniformes y el recorrido de su workflow de n8n.
+- Cupón de contacto que elige la hoja de vida según la vacante.
+- Fotos personales y el logo de IA-Ludik.
+
+### Cambiado
+
+- Rediseño completo con estilo collage: fondo chocolate, acento mango, tipografías Tanker y General Sans, un panel de color por proyecto y franja en movimiento.
+- Stack agrupado en acordeones que dicen en qué proyecto se usó cada tecnología.
+
+### Eliminado
+
+- Fuentes Space Grotesk, Inter y JetBrains Mono.
+
 ## [1.0.1] - 2026-09-27
 
 ### Cambiado

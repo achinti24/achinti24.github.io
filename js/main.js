@@ -5,29 +5,33 @@
 
 'use strict';
 
+const prefersReducedMotion = () =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function initCurrentYear() {
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = new Date().getFullYear();
 }
 
 /**
- * Mobile navigation: toggle, close on link click, Escape or outside click.
+ * Menú del teléfono: abre y cierra, y se cierra al elegir un enlace,
+ * con Escape (devuelve el foco al botón) o con un clic fuera.
  */
 function initNav() {
   const header = document.querySelector('[data-header]');
   const toggle = document.querySelector('[data-nav-toggle]');
   const menu = document.querySelector('[data-nav-menu]');
+  const label = document.querySelector('[data-nav-label]');
   if (!header || !toggle || !menu) return;
 
   const desktop = window.matchMedia('(min-width: 64rem)');
+  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
 
   const setOpen = (open) => {
     header.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    if (label) label.textContent = open ? 'Cerrar' : 'Menú';
   };
-
-  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
 
   toggle.addEventListener('click', () => setOpen(!isOpen()));
 
@@ -52,19 +56,7 @@ function initNav() {
 }
 
 /**
- * Adds a solid background to the header once the page is scrolled.
- */
-function initHeaderScroll() {
-  const header = document.querySelector('[data-header]');
-  if (!header) return;
-
-  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-}
-
-/**
- * Highlights the nav link of the section that crosses the middle of the viewport.
+ * Marca en la navegación la sección que cruza el centro de la pantalla.
  */
 function initActiveSection() {
   const links = document.querySelectorAll('.nav__link[href^="#"]');
@@ -95,27 +87,6 @@ function initActiveSection() {
   document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
 }
 
-/**
- * Spotlight cards: exposes the pointer position as --x / --y for the CSS glow.
- * Only on devices with a fine pointer and no reduced-motion preference.
- */
-function initSpotlight() {
-  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!canHover || reduceMotion) return;
-
-  document.querySelectorAll('[data-spotlight]').forEach((card) => {
-    card.addEventListener('pointermove', (event) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--x', `${event.clientX - rect.left}px`);
-      card.style.setProperty('--y', `${event.clientY - rect.top}px`);
-    });
-  });
-}
-
-/**
- * Shows a short message in the live region (read by screen readers too).
- */
 let toastTimer;
 function showToast(message) {
   const toast = document.querySelector('[data-toast]');
@@ -133,11 +104,10 @@ async function copyText(text) {
       await navigator.clipboard.writeText(text);
       return;
     } catch {
-      // Permission denied: fall through to the legacy method
+      // Permiso denegado: se intenta con el método antiguo
     }
   }
 
-  // Fallback for non-secure contexts or denied clipboard permission
   const field = document.createElement('textarea');
   field.value = text;
   field.setAttribute('readonly', '');
@@ -145,15 +115,17 @@ async function copyText(text) {
   field.style.opacity = '0';
   document.body.append(field);
   field.select();
-  const ok = document.execCommand('copy');
+  const copied = document.execCommand('copy');
   field.remove();
-  if (!ok) throw new Error('Copy command failed');
+  if (!copied) throw new Error('No se pudo copiar el texto');
 }
 
 /**
- * Copy-to-clipboard buttons: <button data-copy="text">.
+ * Botones que copian al portapapeles: <button data-copy="texto">.
  */
 function initCopyButtons() {
+  const feedbackMs = 2400;
+
   document.querySelectorAll('[data-copy]').forEach((button) => {
     const label = button.querySelector('[data-copy-label]');
     const original = label ? label.textContent : '';
@@ -168,7 +140,7 @@ function initCopyButtons() {
         setTimeout(() => {
           button.classList.remove('is-copied');
           if (label) label.textContent = original;
-        }, 2400);
+        }, feedbackMs);
       } catch {
         showToast('No se pudo copiar. Escribe a ' + button.dataset.copy);
       }
@@ -177,59 +149,84 @@ function initCopyButtons() {
 }
 
 /**
- * Fades blocks in as they enter the viewport. Classes are only added here,
- * so content stays visible without JS or with reduced motion.
+ * Cupón de contacto: la vacante elegida decide qué hoja de vida se descarga
+ * y qué proyectos conviene mirar primero. Sin JS se descarga la Full Stack.
+ */
+const CV_BY_ROLE = {
+  fullstack: {
+    file: 'assets/cv/cv-achinti-morales-fullstack.pdf',
+    note: 'Mira primero Ronda y Casacas Colegial.',
+  },
+  backend: {
+    file: 'assets/cv/cv-achinti-morales-backend.pdf',
+    note: 'Mira primero Ronda: NestJS, PostgreSQL con Row-Level Security y 637 tests.',
+  },
+  frontend: {
+    file: 'assets/cv/cv-achinti-morales-frontend.pdf',
+    note: 'Mira primero Ronda y Menú 3D: React 19, TypeScript y Three.js.',
+  },
+  'automatizacion-ia': {
+    file: 'assets/cv/cv-achinti-morales-automatizacion-ia.pdf',
+    note: 'Mira primero el chatbot de LH Uniformes y IA-Ludik.',
+  },
+};
+
+function initCvPicker() {
+  const form = document.querySelector('[data-cv-picker]');
+  if (!form) return;
+
+  const link = form.querySelector('[data-cv-link]');
+  const note = form.querySelector('[data-cv-note]');
+
+  form.addEventListener('submit', (event) => event.preventDefault());
+  form.addEventListener('change', (event) => {
+    const choice = CV_BY_ROLE[event.target.value];
+    if (!choice) return;
+    link.href = choice.file;
+    note.textContent = choice.note;
+  });
+}
+
+/**
+ * Entradas al hacer scroll, escalonadas dentro de cada sección. Las clases
+ * solo se ponen aquí, así que sin JS o sin movimiento todo queda visible.
  */
 function initReveal() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion || !('IntersectionObserver' in window)) return;
+  const isPhone = window.matchMedia('(max-width: 40rem)').matches;
+  if (isPhone || prefersReducedMotion() || !('IntersectionObserver' in window)) return;
 
-  const targets = document.querySelectorAll(
-    '.section-header, .about__text, .about__facts, .cycle, .skill, .project, .journey__col, .contact'
-  );
+  const staggerMs = 80;
+  const maxSteps = 6;
+  const targets = document.querySelectorAll('[data-reveal]');
+
+  targets.forEach((el) => {
+    const section = el.closest('section');
+    const peers = section ? [...section.querySelectorAll('[data-reveal]')] : [el];
+    const step = Math.min(peers.indexOf(el), maxSteps);
+    el.style.setProperty('--reveal-delay', `${step * staggerMs}ms`);
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        const el = entry.target;
-        el.classList.add('is-visible');
-        observer.unobserve(el);
-
-        // Hand transitions back to the component (hover effects) once revealed
-        const cleanup = (event) => {
-          if (event.target !== el) return;
-          el.removeEventListener('transitionend', cleanup);
-          el.classList.remove('reveal', 'is-visible');
-          el.style.removeProperty('--reveal-delay');
-        };
-        el.addEventListener('transitionend', cleanup);
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
       });
     },
-    { rootMargin: '0px 0px -10% 0px' }
+    { rootMargin: '0px 0px 20% 0px' }
   );
 
-  // Stagger siblings of the same kind (e.g. cards in a grid), max 4 steps
-  const delays = new Map();
-  targets.forEach((el) => {
-    const siblings = [...el.parentElement.children].filter((child) => child.className === el.className);
-    delays.set(el, Math.min(siblings.indexOf(el), 4) * 80);
-  });
-
-  targets.forEach((el) => {
-    if (delays.get(el) > 0) el.style.setProperty('--reveal-delay', `${delays.get(el)}ms`);
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
+  document.documentElement.classList.add('has-motion');
+  targets.forEach((el) => observer.observe(el));
 }
 
 function init() {
   initCurrentYear();
   initNav();
-  initHeaderScroll();
   initActiveSection();
-  initSpotlight();
   initCopyButtons();
+  initCvPicker();
   initReveal();
 }
 
