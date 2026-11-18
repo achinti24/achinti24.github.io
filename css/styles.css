@@ -558,6 +558,10 @@ p {
 }
 
 @media (min-width: 64rem) {
+  .hero__title {
+    font-size: min(14.5vw, 13.5rem);
+  }
+
   .hero__stage {
     grid-template-columns: minmax(0, 6.5fr) minmax(0, 5.5fr);
     min-height: calc(100svh - 4.5rem - 6rem);
