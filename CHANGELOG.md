@@ -2,6 +2,12 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.1.1] - 2026-11-18
+
+### Corregido
+
+- El nombre de la portada ya no choca con el collage en pantallas de unos 1024 px de ancho.
+
 ## [1.1.0] - 2026-11-18
 
 ### Añadido
