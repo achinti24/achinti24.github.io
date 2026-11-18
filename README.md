@@ -12,67 +12,63 @@ Portafolio profesional one page de **Achinti Morales Hernández**, Junior Full S
 
 ## Descripción
 
-Sitio estático dirigido a reclutadores de empresas remotas y a posibles clientes. Presenta los proyectos como casos de estudio (**problema → solución → stack**), destacando los dos sistemas que clientes reales usan a diario: un POS con inventario y un chatbot de pedidos por WhatsApp.
+Sitio estático dirigido a reclutadores de empresas remotas y a posibles clientes. Presenta los servicios que ofrezco y los proyectos como casos de estudio, empezando por los dos sistemas que clientes reales usan a diario (un POS con inventario y el chatbot de pedidos de LH Uniformes) y por Ronda, el POS para restaurantes que estoy terminando.
 
-**Secciones:** Hero · Sobre mí · Habilidades · Proyectos · Formación y experiencia · Contacto · Footer.
+**Secciones:** Portada, Sobre mí (con experiencia y formación), Servicios, Proyectos, Stack, Contacto y pie.
 
 ## Tecnologías
 
 - **HTML5 semántico**: `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, con un solo `h1` y una jerarquía de títulos correcta.
 - **CSS3**: variables (design tokens), Grid, Flexbox, `clamp()` para tipografía fluida y enfoque mobile-first.
 - **JavaScript vanilla** (ES2020+): sin frameworks, librerías ni dependencias.
-- Fuentes auto-alojadas en woff2 variable: Space Grotesk, Inter y JetBrains Mono (licencia OFL).
+- Fuentes auto-alojadas en woff2: Tanker y General Sans, de Fontshare (ITF Free Font License).
 
 ## Estructura
 
 ```
 ├── index.html
 ├── css/
-│   └── styles.css        # tokens → reset → base → layout → componentes → secciones
+│   └── styles.css        # tokens, reset, piezas del collage y secciones
 ├── js/
 │   └── main.js           # módulos pequeños inicializados desde init()
 └── assets/
     ├── cv/               # hojas de vida en PDF (Full Stack, Frontend, Backend, Automatización e IA)
-    ├── fonts/            # fuentes woff2 + licencias OFL
-    ├── images/           # imágenes WebP, imagen Open Graph y capturas
+    ├── fonts/            # fuentes woff2 y licencia de Fontshare
+    ├── images/           # fotos, capturas de los proyectos, imagen Open Graph y capturas del sitio
     ├── favicon.svg
     └── apple-touch-icon.png
 ```
 
 ## Diseño
 
-Estética de producto SaaS oscura y técnica: cuadrícula sutil, un solo color de acento y detalles en tipografía monoespaciada.
+Un collage de piezas reales sobre un campo de chocolate oscuro: polaroids, un ticket térmico como los que imprimen mis sistemas, capturas del chatbot y la pantalla de cocina de Ronda. Cada proyecto tiene su propio panel de color.
 
-| Token | Color | Uso | Contraste sobre fondo |
+| Token | Color | Uso | Contraste |
 |---|---|---|---|
-| `--bg` | `#0B0F14` | Fondo | — |
-| `--surface` | `#11161E` | Tarjetas | — |
-| `--text` | `#E6EDF3` | Texto principal | 16.3 : 1 |
-| `--text-muted` | `#9AA8B8` | Texto secundario | 7.9 : 1 |
-| `--text-subtle` | `#8391A3` | Etiquetas | 6.0 : 1 |
-| `--accent` | `#5EEAD4` | Acento, enlaces, foco | 13.0 : 1 |
+| `--ink` | `#2A1D17` | Fondo principal | — |
+| `--paper` | `#F1EFEA` | Texto sobre fondo oscuro, polaroids y tickets | 14.2 : 1 sobre `--ink` |
+| `--bone` | `#E5E1D8` | Secciones claras | — |
+| `--muted` | `#5F5048` | Texto secundario sobre claro | 5.4 : 1 sobre `--bone` |
+| `--accent` | `#F2A516` | Acento mango: botones, franja y stickers | 8.6 : 1 con `--ink` encima |
 
 Todas las combinaciones de texto cumplen **WCAG AA** (≥ 4.5 : 1).
 
-**Tipografía:** Space Grotesk (títulos) · Inter (texto) · JetBrains Mono (etiquetas y chips).
+**Tipografía:** Tanker para títulos y General Sans para el texto.
 
 ## Funcionalidades
 
-- Header fijo que gana fondo translúcido al hacer scroll.
-- Navegación con anclas, scroll suave y **resaltado de la sección activa** (`IntersectionObserver`).
-- **Menú hamburguesa accesible**: `aria-expanded`, `aria-controls`, cierre al elegir un enlace, con `Escape` (devuelve el foco al botón) o con un clic fuera.
-- Microinteracciones: aparición al hacer scroll, brillo que sigue al cursor en las tarjetas y animación de entrada del hero.
-- Botón **Copiar email** con aviso accesible (`role="status"` / `aria-live`).
-- Descarga de 4 hojas de vida según el tipo de vacante.
+- Navegación con anclas, resaltado de la sección activa y menú de teléfono accesible (`aria-expanded`, cierre con `Escape`, con un clic fuera o al elegir un enlace).
+- Franja de servicios en movimiento y piezas del collage que se enderezan al pasar el cursor.
+- Cupón de contacto: eliges la vacante y descargas la hoja de vida que corresponde, con una sugerencia de qué proyectos mirar primero. Sin JavaScript descarga la versión Full Stack.
+- Botón para copiar el email con aviso accesible (`role="status"`).
 
 ## Accesibilidad y rendimiento
 
-- Enlace "Saltar al contenido", estados `:focus-visible` visibles y textos ocultos para lectores de pantalla en enlaces externos.
-- Respeta `prefers-reduced-motion`: sin animaciones de entrada, reveal ni brillo del cursor.
-- Imágenes WebP con `width`/`height` (sin saltos de diseño), `alt` descriptivo y `loading="lazy"` fuera del hero.
+- Enlace "Saltar al contenido", foco visible en todos los controles y textos ocultos para lectores de pantalla en enlaces externos.
+- Respeta `prefers-reduced-motion`: sin franja en movimiento, entradas ni animaciones de la portada.
+- Imágenes WebP con `width`/`height`, `alt` descriptivo y `loading="lazy"` fuera de la portada.
 - Fuentes precargadas con `font-display: swap`.
 - Meta tags de SEO, Open Graph y Twitter Card, favicon SVG y `lang="es"`.
-- HTML validado con `html-validate` (preset recomendado) sin errores.
 
 ## Flujo de trabajo con Git
 
