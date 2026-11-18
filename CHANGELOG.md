@@ -2,6 +2,18 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.2.0] - 2026-11-18
+
+### Cambiado
+
+- "Sobre mí" ahora es una biografía: quién soy, cómo aprendo y qué busco.
+- Nuevo retrato en la portada; la foto del espejo pasa al sello del pie.
+- En teléfonos el ticket y la foto de la portada ya no se tapan.
+
+### Corregido
+
+- El aviso de "email copiado" ya no deja una caja invisible en pantalla.
+
 ## [1.1.1] - 2026-11-18
 
 ### Corregido

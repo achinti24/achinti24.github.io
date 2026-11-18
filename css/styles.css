@@ -529,6 +529,10 @@ p {
   grid-row: 2;
 }
 
+.hero__polaroid img {
+  object-position: 50% 20%;
+}
+
 .hero__polaroid {
   justify-self: end;
   align-self: start;
@@ -1522,16 +1526,20 @@ p {
   color: var(--accent-ink);
   font-weight: 600;
   opacity: 0;
+  visibility: hidden;
   translate: -50% 1rem;
   pointer-events: none;
   transition:
     opacity var(--t-ui) var(--ease-out),
-    translate var(--t-ui) var(--ease-out);
+    translate var(--t-ui) var(--ease-out),
+    visibility 0s linear var(--t-ui);
 }
 
 .toast.is-visible {
   opacity: 1;
+  visibility: visible;
   translate: -50% 0;
+  transition-delay: 0s;
 }
 
 .visually-hidden {
@@ -1608,4 +1616,29 @@ p {
 
 .bar:not([open]) .bar__items {
   display: none;
+}
+
+@media (max-width: 39.99rem) {
+  .hero__polaroid {
+    width: 48%;
+  }
+
+  .hero__ticket {
+    width: 49%;
+    padding: 1rem 0.875rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .ticket__rows div {
+    flex-wrap: wrap;
+    gap: 0 0.5rem;
+  }
+
+  .ticket__total {
+    font-size: 1.25rem;
+  }
+
+  .hero__sticker {
+    display: none;
+  }
 }
