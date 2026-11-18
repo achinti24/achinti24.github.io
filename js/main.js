@@ -192,7 +192,8 @@ function initCvPicker() {
  * solo se ponen aquí, así que sin JS o sin movimiento todo queda visible.
  */
 function initReveal() {
-  if (prefersReducedMotion() || !('IntersectionObserver' in window)) return;
+  const isPhone = window.matchMedia('(max-width: 40rem)').matches;
+  if (isPhone || prefersReducedMotion() || !('IntersectionObserver' in window)) return;
 
   const staggerMs = 80;
   const maxSteps = 6;
@@ -213,38 +214,11 @@ function initReveal() {
         observer.unobserve(entry.target);
       });
     },
-    { rootMargin: '0px 0px -12% 0px' }
+    { rootMargin: '0px 0px 20% 0px' }
   );
 
   document.documentElement.classList.add('has-motion');
   targets.forEach((el) => observer.observe(el));
-}
-
-/**
- * La foto de la portada se acerca despacio mientras la portada sale de pantalla.
- */
-function initHeroDrift() {
-  const photo = document.querySelector('.hero__photo');
-  if (!photo || prefersReducedMotion()) return;
-
-  const maxScale = 0.08;
-  let ticking = false;
-
-  const update = () => {
-    const progress = Math.min(window.scrollY / window.innerHeight, 1);
-    photo.style.setProperty('--drift', String(1 + progress * maxScale));
-    ticking = false;
-  };
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    },
-    { passive: true }
-  );
 }
 
 function init() {
@@ -254,7 +228,6 @@ function init() {
   initCopyButtons();
   initCvPicker();
   initReveal();
-  initHeroDrift();
 }
 
 init();
